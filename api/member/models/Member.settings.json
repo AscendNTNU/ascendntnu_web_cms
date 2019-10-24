@@ -1,0 +1,40 @@
+{
+  "connection": "default",
+  "collectionName": "members",
+  "info": {
+    "name": "member",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": [
+      "created_at",
+      "updated_at"
+    ],
+    "comment": ""
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "background": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
+    },
+    "teams": {
+      "collection": "team",
+      "via": "members",
+      "dominant": true
+    },
+    "mail": {
+      "type": "email"
+    }
+  }
+}
